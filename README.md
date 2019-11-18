@@ -18,7 +18,7 @@ there are many differences between MAF from "Merged All" and sum of "1st phase a
 - I uploaded only chr22.vcf.gz for sample because of size limitation. you can make vcf file using my python scripts.
 
 # add rsid to merged vcf
-
+<pre><code>
 for chrNo in {1..22}
 do
   bgzip -c KRG_merge_song_chr${chrNo}.vcf > KRG_merge_song_chr${chrNo}.vcf.gz
@@ -34,3 +34,4 @@ do
   bcftools norm --check-ref wx -f human_g1k_v37.fasta -Oz -o KRG_merged_chr${chrNo}.checkref.vcf.gz KRG_merge_song_chr${chrNo}.vcf.gz
   bcftools annotate -x ID -I +'%CHROM:%POS:%REF:%ALT' KRG_merge_song_chr${chrNo}.checkref.vcf.gz | bcftools norm --rm-dup none | bcftools annotate -x ID -Ov | SnpSift -Xmx32g annotate -id -noInfo -a -v dbsnp_151.hg19.vcf.gz - | bcftools annotate --set-id +'%CHROM:%POS:%REF:%ALT' -Oz > KRG_merged_chr${chrNo}.checkref.SnpSift.vcf.gz
 done
+</code></pre>
