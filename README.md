@@ -15,7 +15,7 @@ there are many differences between MAF from "Merged All" and sum of "1st phase a
 
 # Limits
 - I don't validate all potential errors at realign alleles
-- I uploaded only chr22 vcf file because of size limitation. you can make vcf file using my python scripts.
+- I uploaded only chr22.vcf.gz for sample because of size limitation. you can make vcf file using my python scripts.
 
 # add rsid to merged vcf
 
