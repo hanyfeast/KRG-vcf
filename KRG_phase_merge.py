@@ -249,7 +249,7 @@ for i in range(1,25):
     
     phase1_2_all = phase1_2_all.sort_values(by=['pos','alt.freq'],ascending=[True,False])
     phase1_2_all[['pos','ref.cnt_p1','alt.cnt_p1','ref.cnt_p2','alt.cnt_p2','ref.cnt','alt.cnt']] = phase1_2_all[['pos','ref.cnt_p1','alt.cnt_p1','ref.cnt_p2','alt.cnt_p2','ref.cnt','alt.cnt']].astype(int)
-    phase1_2_all.to_csv("KRG_merge_song_chr" + str(i) + "_sorted.csv",sep="\t",index=False,header=True)
+    phase1_2_all.to_csv("KRG_merged_chr" + str(i) + ".csv",sep="\t",index=False,header=True)
 
 vcfHeader1 = """##fileformat=VCFv4.1
 ##fileDate=20191026
@@ -273,8 +273,8 @@ for i in range(1,25):
     elif i == 24:
         i = "Y"
         
-    variant_table = pd.read_csv("KRG_merge_song_chr" + str(i) + "_sorted.csv",sep="\t",header=0)
-    vcfFile = open("KRG_merge_song_chr" + str(i) + "_sorted.vcf", "w")
+    variant_table = pd.read_csv("KRG_merged_chr" + str(i) + ".csv",sep="\t",header=0)
+    vcfFile = open("KRG_merged_chr" + str(i) + ".vcf", "w")
     vcfFile.write(vcfHeader1 + str(i) + vcfHeader2)
     for index, row in variant_table.iterrows():
         vcfLine = "\t".join(map(str,[
